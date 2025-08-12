@@ -122,8 +122,6 @@ export default function ResultScreen({ route, navigation }: Props) {
             navigation.reset({ index: 0, routes: [{ name: "Game" }] })
           }
         />
-        <View style={{ width: 12 }} />
-        <Button title="About" onPress={() => navigation.navigate("About")} />
       </View>
 
       <FixedBottomBar />
