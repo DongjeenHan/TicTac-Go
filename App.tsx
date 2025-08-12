@@ -7,21 +7,26 @@ import ResultScreen from './src/screens/ResultScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import AboutScreen from './src/screens/AboutScreen';
 import type { RootStackParamList } from './src/types/navigation';
+import StatsScreen from './src/screens/StatsScreen';
+import { AppProvider } from './src/context/AppContext';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Game"
-        screenOptions={{ headerStyle: { backgroundColor: '#1e293b' }, headerTintColor: '#fff' }}
-      >
-        <Stack.Screen name="Game" component={GameScreen} options={{ title: 'TicTac-GO!' }} />
-        <Stack.Screen name="Result" component={ResultScreen} options={{ title: 'Result' }} />
-        <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login' }} />
-        <Stack.Screen name="About" component={AboutScreen} options={{ title: 'About' }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AppProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Game"
+          screenOptions={{ headerStyle: { backgroundColor: '#1e293b' }, headerTintColor: '#fff' }}
+        >
+          <Stack.Screen name="Game" component={GameScreen} options={{ title: 'TicTac-GO!' }} />
+          <Stack.Screen name="Result" component={ResultScreen} options={{ title: 'Result' }} />
+          <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login' }} />
+          <Stack.Screen name="Stats" component={StatsScreen} options={{ title: 'Your Stats' }} />
+          <Stack.Screen name="About" component={AboutScreen} options={{ title: 'About' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AppProvider>
   );
 }
